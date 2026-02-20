@@ -21,7 +21,7 @@ jobs:
       # 2. Configure AWS credentials via OIDC
       - uses: aws-actions/configure-aws-credentials@v3
         with:
-          role-to-assume: role-to-assume: arn:aws:iam::270758478612:role/lambda-sample-apply  # <-- mettre ton ARN IAM ici
+          role-to-assume: ${{ secrets.APPLY_ROLE_ARN }}  # Set this GitHub secret with your IAM role ARN
           role-session-name: apply-${{ github.run_number }}-${{ github.actor }}
           aws-region: us-east-2
 
